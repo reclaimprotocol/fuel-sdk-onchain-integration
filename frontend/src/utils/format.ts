@@ -17,6 +17,5 @@ export const getHash = (serializedClaim: any) => {
   const message = ethPrefix + serializedClaim;
   let digest = keccak256(Buffer.from(message));
   
-  digest = digest.substring(2);
-  return Buffer.from(digest, "hex");
+  return digest
 }
