@@ -28,7 +28,7 @@ export default function App() {
   const [reclaimProofRequest, setReclaimProofRequest] =
     useState<ReclaimProofRequest>();
   const [requestUrl, setRequestUrl] = useState("");
-  const [statusUrl, setStatusUrl] = useState("");
+  // const [statusUrl, setStatusUrl] = useState("");
 
   useEffect(() => {
     async function Initialize() {
@@ -72,8 +72,8 @@ export default function App() {
 
     const url = await reclaimProofRequest.getRequestUrl();
     setRequestUrl(url);
-    const status = reclaimProofRequest.getStatusUrl();
-    setStatusUrl(status);
+    // const status = reclaimProofRequest.getStatusUrl();
+    // setStatusUrl(status);
 
     await reclaimProofRequest.startSession({
       onSuccess: (proof: any) => {
