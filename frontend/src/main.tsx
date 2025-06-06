@@ -16,6 +16,7 @@ createRoot(document.getElementById('root')!).render(
         fuelConfig={{
           connectors: defaultConnectors(),
         }}
+        networks={[]}
       >
         <App />
       </FuelProvider>

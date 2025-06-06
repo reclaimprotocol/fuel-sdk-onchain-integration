@@ -21,7 +21,7 @@ import type {
   InvokeFunction,
 } from 'fuels';
 
-import type { Enum, Result } from "./common";
+import type { Result } from "./common";
 
 export enum ReclaimErrorInput { OnlyOwner = 'OnlyOwner', AlreadyInitialized = 'AlreadyInitialized', HashMismatch = 'HashMismatch', LengthMismatch = 'LengthMismatch', SignatureMismatch = 'SignatureMismatch' };
 export enum ReclaimErrorOutput { OnlyOwner = 'OnlyOwner', AlreadyInitialized = 'AlreadyInitialized', HashMismatch = 'HashMismatch', LengthMismatch = 'LengthMismatch', SignatureMismatch = 'SignatureMismatch' };
