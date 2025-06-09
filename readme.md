@@ -20,4 +20,4 @@ forc deploy --testnet
 
 | Chain Name | Deployed Address | Explorer Link |
 |:-----------|:-----------------|:--------------|
-| Fuel Testnet | 0x6a4c7d255869a59323dd41016e1ecb980cda9744214540f8c7ab52975543e0d0 | https://app-testnet.fuel.network/contract/0x6a4c7d255869a59323dd41016e1ecb980cda9744214540f8c7ab52975543e0d0|
+| Fuel Testnet | 0x236d2b425f64c7424fa44f5d6eb555e411b618653b160bb9bc4525f18d029b06 | https://app-testnet.fuel.network/contract/0x236d2b425f64c7424fa44f5d6eb555e411b618653b160bb9bc4525f18d029b06|
