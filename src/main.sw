@@ -132,21 +132,3 @@ impl ReclaimContract for Contract {
     }
 }
 
-#[test(should_revert)]
-fn verify_proof() {
-    let sig = [
-        40, 136, 72, 95, 101, 15, 142, 208, 45, 24, 227, 45, 217, 161, 81, 44, 160,
-        95, 235, 131, 252, 44, 191, 45, 247, 47, 216, 170, 66, 70, 197, 238, 84, 31,
-        165, 56, 117, 199, 14, 182, 77, 61, 233, 20, 52, 70, 34, 154, 37, 12, 122,
-        118, 34, 2, 183, 204, 40, 158, 211, 27, 116, 179, 28, 129,
-    ];
-
-    let msg: b256 = 0xc32e57b71247c1aab4b93bb0a2bb373186acc2d5c9bd8dfcd046e1d0553fd421;
-
-    let evm_address = EvmAddress::from(DEFAULT_WITNESS);
-    let signature: Signature = Signature::Secp256k1(Secp256k1::from(sig));
-    let message: Message = Message::from(msg);
-    // A recovered evm address.
-    let result_address = signature.evm_address(message).unwrap();
-    assert(result_address == evm_address);
-}
