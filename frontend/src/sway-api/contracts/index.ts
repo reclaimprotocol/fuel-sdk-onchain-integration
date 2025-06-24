@@ -12,4 +12,3 @@
 
 export { ReclaimContract } from './ReclaimContract';
 export { ReclaimContractFactory } from './ReclaimContractFactory';
-

@@ -17,11 +17,12 @@ import type {
   StorageSlot,
   Address,
   BigNumberish,
+  BN,
   FunctionFragment,
   InvokeFunction,
 } from 'fuels';
 
-import type { Result } from "./common";
+import type { Enum, Result } from "./common";
 
 export enum ReclaimErrorInput { OnlyOwner = 'OnlyOwner', AlreadyInitialized = 'AlreadyInitialized', HashMismatch = 'HashMismatch', LengthMismatch = 'LengthMismatch', SignatureMismatch = 'SignatureMismatch' };
 export enum ReclaimErrorOutput { OnlyOwner = 'OnlyOwner', AlreadyInitialized = 'AlreadyInitialized', HashMismatch = 'HashMismatch', LengthMismatch = 'LengthMismatch', SignatureMismatch = 'SignatureMismatch' };
@@ -36,43 +37,32 @@ const abi = {
       "concreteTypeId": "2e38e77b22c314a449e91fafed92a43826ac6aa403ae6a8acb6cf58239fbaf5d"
     },
     {
-      "type": "[u8; 64]",
-      "concreteTypeId": "d78f0e43f153a55a6db5f4b5fd041f036b51911b38f88095a3106eb02fa1eb17",
-      "metadataTypeId": 0
-    },
-    {
       "type": "b256",
       "concreteTypeId": "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b"
     },
     {
       "type": "enum ReclaimError",
       "concreteTypeId": "499605738face3e9bf31bfb7a34b88e86e6bd12a9cc5b246897f86e99b9c496c",
-      "metadataTypeId": 1
+      "metadataTypeId": 0
     },
     {
       "type": "enum std::result::Result<(),enum ReclaimError>",
       "concreteTypeId": "b3362450da45641a650c2bb3c5cf644ab96e01377ab07bb776ee66f6f430ed45",
-      "metadataTypeId": 2,
+      "metadataTypeId": 1,
       "typeArguments": [
         "2e38e77b22c314a449e91fafed92a43826ac6aa403ae6a8acb6cf58239fbaf5d",
         "499605738face3e9bf31bfb7a34b88e86e6bd12a9cc5b246897f86e99b9c496c"
       ]
+    },
+    {
+      "type": "u64",
+      "concreteTypeId": "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0"
     }
   ],
   "metadataTypes": [
     {
-      "type": "[_; 64]",
-      "metadataTypeId": 0,
-      "components": [
-        {
-          "name": "__array_element",
-          "typeId": 5
-        }
-      ]
-    },
-    {
       "type": "enum ReclaimError",
-      "metadataTypeId": 1,
+      "metadataTypeId": 0,
       "components": [
         {
           "name": "OnlyOwner",
@@ -98,33 +88,29 @@ const abi = {
     },
     {
       "type": "enum std::result::Result",
-      "metadataTypeId": 2,
+      "metadataTypeId": 1,
       "components": [
         {
           "name": "Ok",
-          "typeId": 4
+          "typeId": 3
         },
         {
           "name": "Err",
-          "typeId": 3
+          "typeId": 2
         }
       ],
       "typeParameters": [
-        4,
-        3
+        3,
+        2
       ]
     },
     {
       "type": "generic E",
-      "metadataTypeId": 3
+      "metadataTypeId": 2
     },
     {
       "type": "generic T",
-      "metadataTypeId": 4
-    },
-    {
-      "type": "u8",
-      "metadataTypeId": 5
+      "metadataTypeId": 3
     }
   ],
   "functions": [
@@ -162,14 +148,31 @@ const abi = {
       ]
     },
     {
+      "inputs": [],
+      "name": "current_epoch_id",
+      "output": "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0",
+      "attributes": [
+        {
+          "name": "storage",
+          "arguments": [
+            "read"
+          ]
+        }
+      ]
+    },
+    {
       "inputs": [
         {
           "name": "message",
           "concreteTypeId": "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b"
         },
         {
-          "name": "signature",
-          "concreteTypeId": "d78f0e43f153a55a6db5f4b5fd041f036b51911b38f88095a3106eb02fa1eb17"
+          "name": "signature_r",
+          "concreteTypeId": "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b"
+        },
+        {
+          "name": "signature_s",
+          "concreteTypeId": "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b"
         }
       ],
       "name": "verify_proof",
@@ -225,6 +228,7 @@ export class ReclaimContractInterface extends Interface {
   declare functions: {
     add_epoch: FunctionFragment;
     constructor: FunctionFragment;
+    current_epoch_id: FunctionFragment;
     verify_proof: FunctionFragment;
   };
 }
@@ -237,7 +241,8 @@ export class ReclaimContract extends __Contract {
   declare functions: {
     add_epoch: InvokeFunction<[new_witness: string], Result<void, ReclaimErrorOutput>>;
     constructor: InvokeFunction<[], Result<void, ReclaimErrorOutput>>;
-    verify_proof: InvokeFunction<[message: string, signature: [BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish, BigNumberish]], Result<void, ReclaimErrorOutput>>;
+    current_epoch_id: InvokeFunction<[], BN>;
+    verify_proof: InvokeFunction<[message: string, signature_r: string, signature_s: string], Result<void, ReclaimErrorOutput>>;
   };
 
   constructor(
