@@ -1,0 +1,169 @@
+{
+  "programType": "contract",
+  "specVersion": "1",
+  "encodingVersion": "1",
+  "concreteTypes": [
+    {
+      "type": "()",
+      "concreteTypeId": "2e38e77b22c314a449e91fafed92a43826ac6aa403ae6a8acb6cf58239fbaf5d"
+    },
+    {
+      "type": "b256",
+      "concreteTypeId": "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b"
+    },
+    {
+      "type": "enum ReclaimError",
+      "concreteTypeId": "499605738face3e9bf31bfb7a34b88e86e6bd12a9cc5b246897f86e99b9c496c",
+      "metadataTypeId": 0
+    },
+    {
+      "type": "enum std::result::Result<(),enum ReclaimError>",
+      "concreteTypeId": "b3362450da45641a650c2bb3c5cf644ab96e01377ab07bb776ee66f6f430ed45",
+      "metadataTypeId": 1,
+      "typeArguments": [
+        "2e38e77b22c314a449e91fafed92a43826ac6aa403ae6a8acb6cf58239fbaf5d",
+        "499605738face3e9bf31bfb7a34b88e86e6bd12a9cc5b246897f86e99b9c496c"
+      ]
+    },
+    {
+      "type": "u64",
+      "concreteTypeId": "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0"
+    }
+  ],
+  "metadataTypes": [
+    {
+      "type": "enum ReclaimError",
+      "metadataTypeId": 0,
+      "components": [
+        {
+          "name": "OnlyOwner",
+          "typeId": "2e38e77b22c314a449e91fafed92a43826ac6aa403ae6a8acb6cf58239fbaf5d"
+        },
+        {
+          "name": "AlreadyInitialized",
+          "typeId": "2e38e77b22c314a449e91fafed92a43826ac6aa403ae6a8acb6cf58239fbaf5d"
+        },
+        {
+          "name": "HashMismatch",
+          "typeId": "2e38e77b22c314a449e91fafed92a43826ac6aa403ae6a8acb6cf58239fbaf5d"
+        },
+        {
+          "name": "LengthMismatch",
+          "typeId": "2e38e77b22c314a449e91fafed92a43826ac6aa403ae6a8acb6cf58239fbaf5d"
+        },
+        {
+          "name": "SignatureMismatch",
+          "typeId": "2e38e77b22c314a449e91fafed92a43826ac6aa403ae6a8acb6cf58239fbaf5d"
+        }
+      ]
+    },
+    {
+      "type": "enum std::result::Result",
+      "metadataTypeId": 1,
+      "components": [
+        {
+          "name": "Ok",
+          "typeId": 3
+        },
+        {
+          "name": "Err",
+          "typeId": 2
+        }
+      ],
+      "typeParameters": [
+        3,
+        2
+      ]
+    },
+    {
+      "type": "generic E",
+      "metadataTypeId": 2
+    },
+    {
+      "type": "generic T",
+      "metadataTypeId": 3
+    }
+  ],
+  "functions": [
+    {
+      "inputs": [
+        {
+          "name": "new_witness",
+          "concreteTypeId": "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b"
+        }
+      ],
+      "name": "add_epoch",
+      "output": "b3362450da45641a650c2bb3c5cf644ab96e01377ab07bb776ee66f6f430ed45",
+      "attributes": [
+        {
+          "name": "storage",
+          "arguments": [
+            "read",
+            "write"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [],
+      "name": "constructor",
+      "output": "b3362450da45641a650c2bb3c5cf644ab96e01377ab07bb776ee66f6f430ed45",
+      "attributes": [
+        {
+          "name": "storage",
+          "arguments": [
+            "read",
+            "write"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [],
+      "name": "current_epoch_id",
+      "output": "1506e6f44c1d6291cdf46395a8e573276a4fa79e8ace3fc891e092ef32d1b0a0",
+      "attributes": [
+        {
+          "name": "storage",
+          "arguments": [
+            "read"
+          ]
+        }
+      ]
+    },
+    {
+      "inputs": [
+        {
+          "name": "message",
+          "concreteTypeId": "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b"
+        },
+        {
+          "name": "signature_r",
+          "concreteTypeId": "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b"
+        },
+        {
+          "name": "signature_s",
+          "concreteTypeId": "7c5ee1cecf5f8eacd1284feb5f0bf2bdea533a51e2f0c9aabe9236d335989f3b"
+        }
+      ],
+      "name": "verify_proof",
+      "output": "b3362450da45641a650c2bb3c5cf644ab96e01377ab07bb776ee66f6f430ed45",
+      "attributes": [
+        {
+          "name": "storage",
+          "arguments": [
+            "read"
+          ]
+        }
+      ]
+    }
+  ],
+  "loggedTypes": [
+    {
+      "logId": "5302431605165188073",
+      "concreteTypeId": "499605738face3e9bf31bfb7a34b88e86e6bd12a9cc5b246897f86e99b9c496c"
+    }
+  ],
+  "messagesTypes": [],
+  "configurables": []
+}
