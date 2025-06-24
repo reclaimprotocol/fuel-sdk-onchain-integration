@@ -15,9 +15,20 @@ forc test
 forc deploy --testnet
 ```
 
+## Frontend
+```bash
+cd frontend 
+npm i --legacy-peer-deps
+```
+
+Run the project:
+```bash
+npm run dev
+```
 
 ## Deployments
 
 | Chain Name | Deployed Address | Explorer Link |
 |:-----------|:-----------------|:--------------|
-| Fuel Testnet | 0x236d2b425f64c7424fa44f5d6eb555e411b618653b160bb9bc4525f18d029b06 | https://app-testnet.fuel.network/contract/0x236d2b425f64c7424fa44f5d6eb555e411b618653b160bb9bc4525f18d029b06|
+| Fuel Mainnet | 0xc030df477bf24121be888fc876f5a56602e7881fa815bdef5b64349edb26237e | https://app.fuel.network/contract/0xc030df477bf24121be888fc876f5a56602e7881fa815bdef5b64349edb26237e|
+| Fuel Testnet | 0x09184b421d8d0a5c4c962bac5fe23c50eec33cd66920f160f0f1a3fc97c04aef | https://app-testnet.fuel.network/contract/0x09184b421d8d0a5c4c962bac5fe23c50eec33cd66920f160f0f1a3fc97c04aef|

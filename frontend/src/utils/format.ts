@@ -19,3 +19,10 @@ export const getHash = (serializedClaim: any) => {
   
   return digest
 }
+
+export function bytesToHexString(bytes: any[]) {
+    return '0x' + bytes.map(byte => {
+        // Convert number to hex, pad with '0' if single digit
+        return ('0' + byte.toString(16)).slice(-2);
+    }).join('');
+}

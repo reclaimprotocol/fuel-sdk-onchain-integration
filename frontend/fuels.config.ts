@@ -3,7 +3,7 @@ import { createConfig } from 'fuels';
 export default createConfig({
   contracts: [
         '..',
-        'node_modules/toml/test',
+        // 'node_modules/toml/test',
   ],
   output: './src/sway-api',
 });
