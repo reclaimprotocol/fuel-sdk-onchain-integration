@@ -15,6 +15,16 @@ forc test
 forc deploy --testnet
 ```
 
+## Frontend
+```bash
+cd frontend 
+npm i --legacy-peer-deps
+```
+
+Run the project:
+```bash
+npm run dev
+```
 
 ## Deployments
 
