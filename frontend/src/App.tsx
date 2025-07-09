@@ -10,7 +10,7 @@ import { ReclaimProofRequest } from "@reclaimprotocol/js-sdk";
 import QRCode from "react-qr-code";
 import { bytesToHexString, getHash, getSerializedClaim } from "./utils/format";
 import { transformForOnchain } from "@reclaimprotocol/js-sdk";
-import { CONTRACT_ID, PROOF } from "./utils/constants";
+import { CONTRACT_ID } from "./utils/constants";
 
 export default function App() {
   const [contract, setContract] = useState<ReclaimContract>();
@@ -22,8 +22,8 @@ export default function App() {
     // assetId: wallet?.provider.getBaseAssetId(),
   });
 
-  const [ready, setReady] = useState(true);
-  const [proof, setProof] = useState(PROOF);
+  const [ready, setReady] = useState(false);
+  const [proof, setProof] = useState({});
   const [reclaimProofRequest, setReclaimProofRequest] =
     useState<ReclaimProofRequest>();
   const [requestUrl, setRequestUrl] = useState("");
@@ -113,7 +113,7 @@ export default function App() {
       const signature_r = bytesToHexString(signature.slice(0, 32)); 
       const signature_s = bytesToHexString(signature.slice(32, 64));
 
-      console.log(signature, message);
+      console.log(signature_r, signature_s, message);
       //@ts-ignore
       await contract.functions.verify_proof(message, signature_r, signature_s).call();
     } catch (error) {
