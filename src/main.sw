@@ -32,7 +32,7 @@ struct Epoch {
 
 const ZERO_B256: b256 = b256::min();
 const ZERO_ADDRESS = Address::from(ZERO_B256);
-const DEFAULT_WITNESS: b256 = 0x000000000000000000000000bca7d9293bbc961ad9e66899a3b913bed0f2a05d;
+const DEFAULT_WITNESS: b256 = 0x000000000000000000000000244897572368eadf65bfbc5aec98d8e5443a9072;
 
 abi ReclaimContract {
     #[storage(read, write)]
@@ -120,13 +120,9 @@ impl ReclaimContract for Contract {
 
     #[storage(read)]
     fn verify_proof(message: b256, signature_r: b256, signature_s: b256) -> Result<(), ReclaimError> {
-        let current_epoch = storage.current_epoch.read();
-        let witness = current_epoch.witness;
+        let evm_address = EvmAddress::from(DEFAULT_WITNESS);
 
-        let evm_address = EvmAddress::from(witness);
-
-        let sig = (signature_r, signature_s);
-        let signature: Signature = Signature::Secp256k1(Secp256k1::from(sig));
+        let signature: Signature = Signature::Secp256k1(Secp256k1::from((signature_r, signature_s)));
         let message: Message = Message::from(message);
 
         let result_address = signature.evm_address(message).unwrap();
@@ -170,14 +166,9 @@ fn verify_proof() {
     let _ = caller.constructor {    }();
     let _ = caller.add_epoch(DEFAULT_WITNESS);
 
-    let secp256k1_signature = Signature::Secp256k1(Secp256k1::from((
-        0x2888485f650f8ed02d18e32dd9a1512ca05feb83fc2cbf2df72fd8aa4246c5ee,
-        0x541fa53875c70eb64d3de9143446229a250c7a762202b7cc289ed31b74b31c81,
-    )));
-
-    let message = 0xc32e57b71247c1aab4b93bb0a2bb373186acc2d5c9bd8dfcd046e1d0553fd421;
-    let signature_r = 0x2888485f650f8ed02d18e32dd9a1512ca05feb83fc2cbf2df72fd8aa4246c5ee;
-    let signature_s = 0x541fa53875c70eb64d3de9143446229a250c7a762202b7cc289ed31b74b31c81;
+    let message = 0xfd0772db3aa93d91c285afae67f7ba70d978eb0075a4fe480dd0073f349ea592;
+    let signature_r = 0xa8dbc31a5b368e4fde90f01430c69a4682cff4d145538d54120ff4430c214be9;
+    let signature_s = 0x67f06d6e142cf4e6f74b26eacb4bdae33e2327b3aabe107ea5fe56df2d8bfeb8;
 
     let result = caller.verify_proof(message, signature_r, signature_s);
     assert(result.is_ok());

@@ -1,24 +1,29 @@
 export const PROOF = {
-  "identifier": "0x937c69accba0809e876033ab5394b6b905104881a8a00f7ae0a6f47bf0e24e1e",
-  "claimData": {
-    "provider": "http",
-    "parameters": "{\"additionalClientOptions\":{},\"body\":\"\",\"geoLocation\":\"\",\"headers\":{\"Referer\":\"https://github.com/settings/profile\",\"Sec-Fetch-Mode\":\"same-origin\",\"User-Agent\":\"Mozilla/5.0 (Linux; Android 15) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.6668.69 Mobile Safari/537.36\"},\"method\":\"GET\",\"paramValues\":{\"username\":\"hadi-saleh14\"},\"responseMatches\":[{\"invert\":false,\"type\":\"contains\",\"value\":\"<span class=\\\"color-fg-muted\\\">({{username}})</span>\"}],\"responseRedactions\":[{\"jsonPath\":\"\",\"regex\":\"<span class=\\\"color-fg-muted\\\">\\\\((.*)\\\\)</span>\",\"xPath\":\"\"}],\"url\":\"https://github.com/settings/profile\"}",
-    "owner": "0x08b0292bef7ef2ef839d9f95b709401140ef0b7b",
-    "timestampS": 1736693048,
-    "context": "{\"contextAddress\":\"user's address\",\"contextMessage\":\"for acmecorp.com on 1st january\",\"extractedParameters\":{\"username\":\"hadi-saleh14\"},\"providerHash\":\"0x9d413beed5ff5982df9460e8f4c3d118febd36839f5c9558980856a07369cca5\"}",
-    "identifier": "0x937c69accba0809e876033ab5394b6b905104881a8a00f7ae0a6f47bf0e24e1e",
-    "epoch": 1
+  claimData: {
+    provider: "http",
+    parameters:
+      '{"body":"","method":"GET","responseMatches":[{"type":"regex","value":"\\\\{\\"ethereum\\":\\\\{\\"usd\\":(?<price>[\\\\d\\\\.]+)\\\\}\\\\}"}],"responseRedactions":[],"url":"https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd"}',
+    owner: "0x381994d6b9b08c3e7cfe3a4cd544c85101b8f201",
+    timestampS: 1752056698,
+    context:
+      '{"extractedParameters":{"price":"2612.54"},"providerHash":"0x5dbe58ad866070178af5c86d8caac49014934f9499a5ebd9599961325bfc347d"}',
+    identifier:
+      "0x5ecb7fed5a589b5d6babcf5cc6134b6323eb2b201a3d2a40c2318b6dc8ad8403",
+    epoch: 1,
   },
-  "signatures": [
-    "0x55bb3f5b4b48f5292fb7230f74d4cb5a67c2b0409f53997a1636942c36feed5a3311229e74b85a003515183c70f6b8350397fe290f09c7170dbca11eebfe74291c"
+  identifier:
+    "0x5ecb7fed5a589b5d6babcf5cc6134b6323eb2b201a3d2a40c2318b6dc8ad8403",
+  signatures: [
+    "0xa8dbc31a5b368e4fde90f01430c69a4682cff4d145538d54120ff4430c214be967f06d6e142cf4e6f74b26eacb4bdae33e2327b3aabe107ea5fe56df2d8bfeb81b",
   ],
-  "witnesses": [
+  extractedParameterValues: { price: "2612.54" },
+  witnesses: [
     {
-      "id": "0x244897572368eadf65bfbc5aec98d8e5443a9072",
-      "url": "wss://witness.reclaimprotocol.org/ws"
-    }
+      id: "0x244897572368eadf65bfbc5aec98d8e5443a9072",
+      url: "wss://attestor.reclaimprotocol.org:447/ws",
+    },
   ],
-  "publicData": {}
-}
+};
 
-export const CONTRACT_ID = "0x09184b421d8d0a5c4c962bac5fe23c50eec33cd66920f160f0f1a3fc97c04aef"
+export const CONTRACT_ID =
+  "0x7100b7811bfdb3ffad2a7863bc96383be888f5a9c6cb2df30f4b519733b9ea54";
