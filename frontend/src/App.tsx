@@ -43,9 +43,9 @@ export default function App() {
   useEffect(() => {
     async function initializeReclaim() {
       // Kaggle, replace with your own metadata
-      const APP_ID = "0x4c8e08f2B5AeD9504C888A327BaaCd6Ea617e18B";
+      const APP_ID = "0xD1A9d4278365293b87188f370d3cb5b5ddCE5cF5";
       const APP_SECRET =
-        "0x65507a8cf531019090e334630e74655168a7cbed6a95cc2c285a4d5653f8f7b4";
+        "0xf0887aca49164a640d2c36f93b66602e23870d436ebd1970174b6e88f2566a1d";
       const PROVIDER_ID = "c94476a0-8a75-4563-b70a-bf6124d7c59b";
 
       const proofRequest = await ReclaimProofRequest.init(
@@ -154,8 +154,8 @@ export default function App() {
               </div>
             )}
 
-            <p>Your Fuel Wallet address is:</p>
-            <p>{wallet?.address.toAddress()}</p>
+            <p style={styles.p}>Your Fuel Wallet address is:</p>
+            <p style={styles.p}>{wallet?.address.toAddress()}</p>
           </>
         ) : (
           <button
@@ -178,7 +178,7 @@ const styles = {
     placeItems: "center",
     height: "100vh",
     width: "100vw",
-    backgroundColor: "black",
+    backgroundColor: "white",
   } as React.CSSProperties,
   container: {
     color: "#ffffffec",
@@ -192,6 +192,9 @@ const styles = {
   counter: {
     color: "#a0a0a0",
     fontSize: "48px",
+  },
+  p: {
+    color: "#000000"
   },
   button: {
     borderRadius: "8px",
