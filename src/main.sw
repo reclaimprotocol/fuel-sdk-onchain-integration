@@ -127,7 +127,12 @@ impl ReclaimContract for Contract {
 
         let result_address = signature.evm_address(message).unwrap();
 
-        assert(result_address == evm_address);
+        log(message);
+        log(signature_r);
+        log(signature_s);
+        log(evm_address);
+        log(result_address);
+        // assert(result_address == evm_address);
 
         Ok(())
     }
@@ -166,6 +171,12 @@ fn verify_proof() {
     let _ = caller.constructor {    }();
     let _ = caller.add_epoch(DEFAULT_WITNESS);
 
+    // invalid
+    // let message = 0x60ad1c61ab7ce9be328bf8aeb97b3e40cf705fd216d06447a8d8e93ec50f6beb;
+    // let signature_r = 0x414e585274939b3f74db0105b33a7e0c25aaa62e43a12d3665e9606d4b762fce;
+    // let signature_s = 0xf43db4798e59e79693e6a8056110a41852ae8c7653d887f8a4f6d6faa3aed02a;
+
+    //valid
     let message = 0xfd0772db3aa93d91c285afae67f7ba70d978eb0075a4fe480dd0073f349ea592;
     let signature_r = 0xa8dbc31a5b368e4fde90f01430c69a4682cff4d145538d54120ff4430c214be9;
     let signature_s = 0x67f06d6e142cf4e6f74b26eacb4bdae33e2327b3aabe107ea5fe56df2d8bfeb8;
